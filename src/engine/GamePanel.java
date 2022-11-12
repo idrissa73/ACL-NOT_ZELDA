@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 //added
 import start.Labyrinthe;
+import start.Monstre;
+
 //added
 import javax.swing.JPanel;
 
@@ -27,7 +29,9 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	Thread thread;
 	Controller Control= new Controller();
-	Hero player1 = new Hero(this,Control);
+	Hero player1 = new Hero(this,Control,10,0,0);
+	Monstre monstre1= new Monstre(this,5,100,100);
+		
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -71,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable{
 		labyrinthe.draw(g2);
 		//added
 		player1.draw(g2);
+		monstre1.draw(g2);
 		g2.dispose();
 		
 	}

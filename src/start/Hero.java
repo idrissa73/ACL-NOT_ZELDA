@@ -8,12 +8,11 @@ import engine.GamePanel;
 
 public class Hero extends Personnage {
 
-	GamePanel gp;
+	
 	Controller control;
 
-	public Hero(GamePanel gp, Controller control) {
-		super(10,0,0);
-		this.gp = gp;
+	public Hero(GamePanel gp, Controller control,int pointsVie, int positionX,int positionY) {
+		super(gp,pointsVie,positionX,positionY);
 		this.control=control;
 	}
 
