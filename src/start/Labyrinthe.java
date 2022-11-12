@@ -87,7 +87,7 @@ public class Labyrinthe {
 		}
 	}
 	
-	public void loadMap(String filePath) {
+	public void  loadMap(String filePath) {
 		
 		try {
 			InputStream is=getClass().getResourceAsStream(filePath);
