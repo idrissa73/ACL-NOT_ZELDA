@@ -24,18 +24,26 @@ public class Hero extends Personnage {
 
 		if (control.Up == true) {
 			super.deplacerHaut();
+			control.Up=false;
 			//control.Up = false;
 		}
 		if (control.Down == true) {
 			super.deplacerBas();
+			control.Down=false;
+
 			//control.Down = false;
 		}
 		if (control.Left == true) {
-			super.deplacerGauche();
+			System.out.print(Labyrinthe.mapTileNum[this.positionX/48][this.positionY/48]);
+			if((Labyrinthe.mapTileNum[((this.positionY/48))][this.positionX/48])==0)
+			{super.deplacerGauche();
+			control.Left=false;}
+
 			//control.Left = false;
 		}
 		if (control.Right == true) {
 			super.deplacerDroite();
+			control.Right=false;
 			//control.Right = false;
 		}		
 	}
@@ -44,4 +52,5 @@ public class Hero extends Personnage {
 	g2.setColor(Color.white);
 	g2.fillOval(positionX, positionY, GamePanel.pixelSize, GamePanel.pixelSize);
 	}
+}
 

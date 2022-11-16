@@ -8,8 +8,7 @@ public class Controller implements KeyListener {
 	public boolean Up,Left,Down,Right;
 
 	
-	public void keyTyped(KeyEvent e) {
-			
+	public void keyTyped(KeyEvent e) {			
 	}
 
 	@Override

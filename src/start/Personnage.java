@@ -41,18 +41,22 @@ public class Personnage {
 	//qlq setters et getters doivent etre reajoutés au diagram
 	
 	//added *0.05 to reduce speed
-
+	//><
 	public void deplacerHaut(){
-		this.positionY -= GamePanel.pixelSize*0.05;
+	if (this.positionY > 0)
+		this.positionY -= GamePanel.pixelSize;  //speedtest
 	}
 	public void deplacerBas(){
-		this.positionY += GamePanel.pixelSize*0.05;
+		if (this.positionY < (GamePanel.verticalPixals-1)*GamePanel.pixelSize)
+		this.positionY += GamePanel.pixelSize;
 	}
 	public void deplacerGauche(){
-		this.positionX -= GamePanel.pixelSize*0.05;
+		if (this.positionX > 0)
+		this.positionX -= GamePanel.pixelSize;
 	}
 	public void deplacerDroite(){
-		this.positionX += GamePanel.pixelSize*0.05;
+		if (this.positionX < (GamePanel.horizontalPixels-1)*GamePanel.pixelSize)
+		this.positionX += GamePanel.pixelSize;
 	}
 	//setter a ajouter dans la classe case
 

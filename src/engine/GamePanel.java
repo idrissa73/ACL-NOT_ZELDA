@@ -17,8 +17,8 @@ import start.Labyrinthe;
 public class GamePanel extends JPanel implements Runnable{
 	
 	public final static int pixelSize = 48; //changed to 48
-	public int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
-	public int verticalPixals =12; //changed to 12 + added visibility public + remove of final
+	public final static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
+	public final static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
 	final int screenWidth = pixelSize*horizontalPixels;
 	final int screenHeight = pixelSize*verticalPixals;
 	
@@ -29,8 +29,8 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	Thread thread;
 	Controller Control= new Controller();
-	Hero player1 = new Hero(this,Control,10,0,0);
-	Monstre monstre1= new Monstre(this,5,100,100);
+	Hero player1 = new Hero(this,Control,10,1*pixelSize,1*pixelSize);
+	Monstre monstre1= new Monstre(this,5,3*pixelSize,3*pixelSize);
 		
 	
 	public GamePanel() {
@@ -64,7 +64,12 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 	}
 	public void update() {
+		
 		player1.Mouvement();
+		
+		
+		monstre1.deplacerAleatoire(); 
+		
 		//System.out.println(player1.positionX);
 	}
 	
