@@ -16,11 +16,11 @@ public class Fantome extends Monstre {
 
 public void traverserMur() {
 	//*******
-}; 
+} 
 
 public void testCase() {
 	//*******
-}; 
+}
 
 public void draw(Graphics2D g2) {
 	g2.setColor(Color.red);

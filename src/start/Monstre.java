@@ -18,14 +18,23 @@ public class Monstre extends Personnage {
 	}	
 
 public void deplacerAleatoire() {
-	
-	
-}; 
+	int s=(int)(Math.random()* 4 )+1;
+			if(s==1)
+				super.deplacerHaut();
+			else if(s==2)
+				super.deplacerBas();
+			else if(s==3)
+				super.deplacerGauche();
+			else if(s==4)
+				super.deplacerDroite();
+		
 
+	
+}
 
 public void deplacerIntelligent() {
 	//*******
-} ;
+}
 
 public void draw(Graphics2D g2) {
 	g2.setColor(Color.black);
