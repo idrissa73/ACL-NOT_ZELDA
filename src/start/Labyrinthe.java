@@ -16,7 +16,7 @@ public class Labyrinthe {
 	// change the two attributes TailleX and TailleY to one attribute GamePanel
 		GamePanel gp;
 		Cases[] grille;
-		int mapTileNum[][];
+		static int mapTileNum[][];
 		
 		
 		
