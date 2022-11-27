@@ -21,6 +21,7 @@ public class Main {
 		jeu.setVisible(true);
 		
 		game.startThread();
+		System.out.print("hello game");
 		
 	}
 }

@@ -34,7 +34,7 @@ public class Labyrinthe {
 	
 	public int getTailleX()
 	{// Retourne la longueur du labyrinthe en nombre de cases.
-		return gp.horizontalPixels;
+		return GamePanel.horizontalPixels;
 	}
 	
 	public int getTailleY()

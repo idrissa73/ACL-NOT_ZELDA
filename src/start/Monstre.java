@@ -19,13 +19,13 @@ public class Monstre extends Personnage {
 
 public void deplacerAleatoire() {
 	int s=(int)(Math.random()* 4 )+1;
-			if(s==1)
+			if ((s==1) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
 				super.deplacerHaut();
-			else if(s==2)
+			else if ((s==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
 				super.deplacerBas();
-			else if(s==3)
+			else if ((s==3) & (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
 				super.deplacerGauche();
-			else if(s==4)
+			else if ((s==4) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
 				super.deplacerDroite();
 		
 

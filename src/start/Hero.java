@@ -23,31 +23,35 @@ public class Hero extends Personnage {
 	public void Mouvement() {
 
 		if (control.Up == true) {
+			if((Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ])==0) {
 			super.deplacerHaut();
-			control.Up=false;
+			control.Up=false;}
+			
 			//control.Up = false;
 		}
 		if (control.Down == true) {
+			if((Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1])==0) {
 			super.deplacerBas();
-			control.Down=false;
+			control.Down=false;}
 
 			//control.Down = false;
 		}
 		if (control.Left == true) {
-			System.out.print(Labyrinthe.mapTileNum[this.positionX/48][this.positionY/48]);
-			if((Labyrinthe.mapTileNum[((this.positionY/48))][this.positionX/48])==0)
+			
+			if((Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48])==0)
 			{super.deplacerGauche();
 			control.Left=false;}
 
 			//control.Left = false;
 		}
 		if (control.Right == true) {
+			if((Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48])==0){
 			super.deplacerDroite();
-			control.Right=false;
+			control.Right=false;}
 			//control.Right = false;
-		}		
+			
 	}
-	
+	}
 	public void draw(Graphics2D g2) {     //affichage
 	g2.setColor(Color.white);
 	g2.fillOval(positionX, positionY, GamePanel.pixelSize, GamePanel.pixelSize);
