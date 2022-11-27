@@ -1,10 +1,9 @@
 package start;
 
-import engine.Controller;
 import engine.GamePanel;
 import java.awt.Rectangle;
 
-public class Personnage {
+public abstract class Personnage {
 
 	private int pointsVie;
 	public int positionX;
@@ -60,13 +59,10 @@ public class Personnage {
 	}
 	//setter a ajouter dans la classe case
 
-	public void attaquer() {
-		//*******
-	}
-	//nom à changer
+	public abstract void attaquer(Monstre monstre1);
 	
 	public boolean perdreVie() {
-		if (pointsVie == 0)
+		if (pointsVie <= 0)
 			return true;
 		return false;
 	}

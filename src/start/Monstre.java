@@ -16,18 +16,13 @@ public class Monstre extends Personnage {
 			
 			
 	}	
+	public void attaquer(Monstre monstre1) {
+		
+		
+	}
 
 public void deplacerAleatoire() {
-	int s=(int)(Math.random()* 4 )+1;
-<<<<<<< HEAD
-			if(s==1)
-				super.deplacerHaut();
-			else if(s==2)
-				super.deplacerBas();
-			else if(s==3)
-				super.deplacerGauche();
-			else if(s==4)
-=======
+	int s=(int)(Math.random()* 100 )+1;
 			if ((s==1) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
 				super.deplacerHaut();
 			else if ((s==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
@@ -35,7 +30,6 @@ public void deplacerAleatoire() {
 			else if ((s==3) & (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
 				super.deplacerGauche();
 			else if ((s==4) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
->>>>>>> ba1bdfd30fe101d32edad914882b9f16c3d286e5
 				super.deplacerDroite();
 		
 
@@ -50,6 +44,5 @@ public void draw(Graphics2D g2) {
 	g2.setColor(Color.black);
 	g2.fillRect(positionX, positionY, GamePanel.pixelSize, GamePanel.pixelSize);
 
-	}
-
+}
 }
