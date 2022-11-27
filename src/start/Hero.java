@@ -22,11 +22,11 @@ public class Hero extends Personnage {
 	
 	public void attaquer(Monstre monstre1) {
 		if (control.Attaque == true ) {
-	           if (//(this.positionX + GamePanel.pixelSize==monstre1.positionX) &&
-	    		    //(this.positionY + GamePanel.pixelSize ==monstre1.positionY)&&
-	    		   //(this.positionX - GamePanel.pixelSize==monstre1.positionX) &&
-	    		   //(this.positionY - GamePanel.pixelSize ==monstre1.positionY)&&
-	    		   (this.positionY ==monstre1.positionY))
+	           if (((this.positionX + GamePanel.pixelSize==monstre1.positionX) && (this.positionY ==monstre1.positionY))||
+	        		((this.positionY + GamePanel.pixelSize ==monstre1.positionY) &&(this.positionX==monstre1.positionX))||
+	        		((this.positionX - GamePanel.pixelSize==monstre1.positionX) &&(this.positionY ==monstre1.positionY))||
+	        		((this.positionY - GamePanel.pixelSize ==monstre1.positionY) &&(this.positionX==monstre1.positionX))||
+	        		((this.positionX == monstre1.positionX)&&(this.positionY ==monstre1.positionY)))
 				{   System.out.println(monstre1.getPointsVie());
 		            monstre1.subirDegat(10);
 		            System.out.println("attaque");

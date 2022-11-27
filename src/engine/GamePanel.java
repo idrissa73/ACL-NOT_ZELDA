@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable{
 	Thread thread;
 	Controller Control= new Controller();
 	Hero player1 = new Hero(this,Control,10,1*pixelSize,1*pixelSize);
-	Monstre monstre1= new Monstre(this,5,3*pixelSize,3*pixelSize);
+	Monstre monstre1= new Monstre(this,100,3*pixelSize,3*pixelSize);
 		
 	
 	public GamePanel() {
