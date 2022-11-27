@@ -1,13 +1,13 @@
 package main;
-
 import javax.swing.JFrame; // a voir javafx
 
 import engine.GamePanel;
 
-public class Main {
-	public static void main(String[] args) {
-		
-		
+public class Main 
+
+{
+	public static void main(String[] args) 
+	{
 		JFrame jeu= new JFrame();
 		jeu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jeu.setResizable(false);
@@ -19,7 +19,6 @@ public class Main {
 		
 		jeu.setLocationRelativeTo(null);
 		jeu.setVisible(true);
-		
 		game.startThread();
 		
 	}
