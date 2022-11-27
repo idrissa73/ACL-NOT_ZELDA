@@ -17,16 +17,17 @@ public class Labyrinthe {
 		GamePanel gp;
 		Cases[] grille;
 		static int mapTileNum[][];
+		int nbTypeCases = 6; 
 		
 		
 		
 		public Labyrinthe(GamePanel gp)
 		{
 			this.gp=gp;
-			grille=new Cases[10];
+			grille=new Cases[nbTypeCases];
 			mapTileNum= new int[gp.horizontalPixels][gp.verticalPixals];
 			getTileImage();
-			loadMap("/maps/map01.txt");
+			loadMap("/maps/map02.txt");
 			
 		}
 		
@@ -34,7 +35,7 @@ public class Labyrinthe {
 	
 	public int getTailleX()
 	{// Retourne la longueur du labyrinthe en nombre de cases.
-		return GamePanel.horizontalPixels;
+		return gp.horizontalPixels;
 	}
 	
 	public int getTailleY()
@@ -77,18 +78,19 @@ public class Labyrinthe {
 	{
 		try {
 			grille[0]=new Cases();
-			grille[0].image=ImageIO.read(getClass().getResourceAsStream("/grilles/Case.png"));
-			grille[1]=new Cases();
-			grille[1].image=ImageIO.read(getClass().getResourceAsStream("/grilles/Piege.png"));
-			grille[2]=new Cases();
-			grille[2].image=ImageIO.read(getClass().getResourceAsStream("/grilles/Tresor.png"));
+			grille[0].image=ImageIO.read(getClass().getResourceAsStream("/grilles/grass.png"));
+			grille[1]=new CaseMur();
+			grille[2]=new CaseEau();
+			grille[3] = new CaseBonus();
+			grille[4] = new CaseObstacle();
+			grille[5] = new CasePiege();
 		
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public void  loadMap(String filePath) {
+	public void loadMap(String filePath) {
 		
 		try {
 			InputStream is=getClass().getResourceAsStream(filePath);
