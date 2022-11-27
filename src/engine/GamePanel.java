@@ -30,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable{
 	Thread thread;
 	Controller Control= new Controller();
 	Hero player1 = new Hero(this,Control,10,1*pixelSize,1*pixelSize);
-	Monstre monstre1= new Monstre(this,5,3*pixelSize,3*pixelSize);
+	Monstre monstre1= new Monstre(this,100,3*pixelSize,3*pixelSize);
 		
 	
 	public GamePanel() {
@@ -67,8 +67,13 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		player1.Mouvement();
 		
-		
+		if (monstre1.perdreVie()==false) {
 		monstre1.deplacerAleatoire(); 
+		player1.attaquer(monstre1);
+		
+		}
+		
+		
 		
 		//System.out.println(player1.positionX);
 	}
@@ -80,7 +85,11 @@ public class GamePanel extends JPanel implements Runnable{
 		labyrinthe.draw(g2);
 		//added
 		player1.draw(g2);
+		
+		if (monstre1.perdreVie()==false)
+		{
 		monstre1.draw(g2);
+		}
 		g2.dispose();
 		
 	}
