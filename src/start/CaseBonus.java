@@ -13,7 +13,7 @@ public class CaseBonus extends Cases {
 		this.bonusVie = bonusVie;
 		// Chargement de l'image
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/grilles/key.png"));
+			this.image = ImageIO.read(getClass().getResourceAsStream("/grilles/Bonus.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -22,7 +22,7 @@ public class CaseBonus extends Cases {
 	public CaseBonus() {
 		// Chargement de l'image
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/grilles/key.png"));
+			this.image = ImageIO.read(getClass().getResourceAsStream("/grilles/Bonus.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -35,4 +35,3 @@ public class CaseBonus extends Cases {
 		return bonusVie;
 	}
 }
-

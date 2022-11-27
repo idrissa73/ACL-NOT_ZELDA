@@ -80,13 +80,10 @@ public class Labyrinthe {
 			grille[0]=new Cases();
 			grille[0].image=ImageIO.read(getClass().getResourceAsStream("/grilles/grass.png"));
 			grille[1]=new CaseMur();
-		//	grille[1].image=ImageIO.read(getClass().getResourceAsStream("/grilles/wall.png"));
-
 			grille[2]=new CaseEau();
-		//	grille[2].image=ImageIO.read(getClass().getResourceAsStream("/grilles/water.png"));
-
-			//grille[3] = new CaseBonus();
-			//grille[4] = new CasePiege();
+			grille[3] = new CaseBonus();
+			grille[4] = new CaseObstacle();
+			grille[5] = new CasePiege();
 		
 		} catch(IOException e) {
 			e.printStackTrace();

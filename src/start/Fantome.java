@@ -28,3 +28,4 @@ public class Fantome extends Monstre {
 	
 		}
 }
+

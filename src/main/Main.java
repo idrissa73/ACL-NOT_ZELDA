@@ -20,6 +20,7 @@ public class Main
 		jeu.setLocationRelativeTo(null);
 		jeu.setVisible(true);
 		game.startThread();
+		System.out.print("hello game");
 		
 	}
 }

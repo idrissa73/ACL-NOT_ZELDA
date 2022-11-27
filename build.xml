@@ -1,8 +1,0 @@
-<project name="essai de compilation" default="run">
-	<target name="run" depends ="compilation">
-	</target>
-	<target name="compilation">
-		<echo message="je suis ici" />
-		<javac includeantruntime="false" srcdir="./src" destdir="staging" />
-	</target>
-</project>
