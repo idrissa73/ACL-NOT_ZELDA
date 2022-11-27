@@ -17,7 +17,11 @@ import start.Labyrinthe;
 public class GamePanel extends JPanel implements Runnable{
 	
 	public final static int pixelSize = 48; //changed to 48
+<<<<<<< HEAD
 	public  static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
+=======
+	public static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
+>>>>>>> ba1bdfd30fe101d32edad914882b9f16c3d286e5
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
 	final int screenWidth = pixelSize*horizontalPixels;
 	final int screenHeight = pixelSize*verticalPixals;
