@@ -2,6 +2,9 @@ package start;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import engine.GamePanel;
 
@@ -41,8 +44,17 @@ public void deplacerIntelligent() {
 }
 
 public void draw(Graphics2D g2) {
-	g2.setColor(Color.black);
-	g2.fillRect(positionX, positionY, GamePanel.pixelSize, GamePanel.pixelSize);
-
+try
+{
+mons=ImageIO.read(getClass().getResourceAsStream("/grilles/greenslime_down_2.png"));
 }
+catch (IOException e) {
+// TODO Auto-generated catch block
+e.printStackTrace();
+}
+g2.drawImage(mons,positionX,positionY, gp.pixelSize,gp.pixelSize,null);
+// g2.setColor(Color.black);
+// g2.fillRect(positionX, positionY, GamePanel.pixelSize, GamePanel.pixelSize);
+}
+
 }
