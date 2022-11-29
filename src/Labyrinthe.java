@@ -80,7 +80,7 @@ public class Labyrinthe {
 			grille[0].image=ImageIO.read(getClass().getResourceAsStream("/src/res/tile_grass.png"));
 			grille[1]=new CaseMur();
 			grille[2]=new CaseEau();
-			grille[3] = new CaseBonus();
+			grille[3] = new CaseBonus(2);
 			grille[4] = new CaseObstacle();
 			grille[5] = new CasePiege();
 		

@@ -13,16 +13,21 @@ public class CaseBonus extends Cases {
 		this.bonusVie = bonusVie;
 		// Chargement de l'image
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/Bonus.png"));
+			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/apple2s.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	public CaseBonus() {
+	public CaseBonus(int typeBonus) {
 		// Chargement de l'image
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/Bonus.png"));
+			if (typeBonus == 1) {
+				this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/apple2.png"));
+			}else if (typeBonus==2) {
+				this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/banana.png"));
+			}
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
