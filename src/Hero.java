@@ -9,6 +9,8 @@ import javax.imageio.ImageIO;
 
 
 
+
+
 public class Hero extends Personnage {
 
 	

@@ -1,12 +1,18 @@
 package src;
 
 
+<<<<<<< HEAD:src/Personnage.java
+=======
+
+>>>>>>> 685f1af50b55e2ddcc85340d272bf51a709fd8ce:src/src/start/Personnage.java
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
+import engine.GamePanel;
 
 public class Personnage
 {

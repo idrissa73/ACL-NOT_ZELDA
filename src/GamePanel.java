@@ -9,6 +9,13 @@ import java.awt.Graphics2D;
 //added
 import javax.swing.JPanel;
 
+<<<<<<< HEAD:src/GamePanel.java
+=======
+import start.Hero;
+import start.Labyrinthe;
+import start.Monstre;
+
+>>>>>>> 685f1af50b55e2ddcc85340d272bf51a709fd8ce:src/src/engine/GamePanel.java
 
 public class GamePanel extends JPanel implements Runnable{
 	

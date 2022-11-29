@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 
+
 public class Labyrinthe {
 	
 	// change the two attributes TailleX and TailleY to one attribute GamePanel
@@ -24,7 +25,7 @@ public class Labyrinthe {
 		{
 			this.gp=gp;
 			grille=new Cases[nbTypeCases];
-			mapTileNum= new int[gp.horizontalPixels][gp.verticalPixals];
+			mapTileNum= new int[GamePanel.horizontalPixels][GamePanel.verticalPixals];
 			getTileImage();
 			loadMap("/src/res/map01.txt");
 			
@@ -34,7 +35,7 @@ public class Labyrinthe {
 	
 	public int getTailleX()
 	{// Retourne la longueur du labyrinthe en nombre de cases.
-		return gp.horizontalPixels;
+		return GamePanel.horizontalPixels;
 	}
 	
 	public int getTailleY()
