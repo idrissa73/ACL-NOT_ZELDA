@@ -1,5 +1,7 @@
-package src;
+package main;
 import javax.swing.JFrame; // a voir javafx
+
+import engine.GamePanel;
 
 
 public class Main 

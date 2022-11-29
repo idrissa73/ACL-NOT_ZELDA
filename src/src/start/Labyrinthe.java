@@ -1,4 +1,4 @@
-package src;
+package start;
 
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+
+import engine.GamePanel;
 
 
 public class Labyrinthe {
@@ -24,7 +26,7 @@ public class Labyrinthe {
 		{
 			this.gp=gp;
 			grille=new Cases[nbTypeCases];
-			mapTileNum= new int[gp.horizontalPixels][gp.verticalPixals];
+			mapTileNum= new int[GamePanel.horizontalPixels][GamePanel.verticalPixals];
 			getTileImage();
 			loadMap("/src/res/map01.txt");
 			
@@ -34,7 +36,7 @@ public class Labyrinthe {
 	
 	public int getTailleX()
 	{// Retourne la longueur du labyrinthe en nombre de cases.
-		return gp.horizontalPixels;
+		return GamePanel.horizontalPixels;
 	}
 	
 	public int getTailleY()

@@ -1,4 +1,4 @@
-package src;
+package start;
 // New class
 import java.awt.image.BufferedImage;
 

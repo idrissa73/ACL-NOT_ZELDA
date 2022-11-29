@@ -1,4 +1,4 @@
-package src;
+package engine;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,10 @@ import java.awt.Graphics2D;
 
 //added
 import javax.swing.JPanel;
+
+import start.Hero;
+import start.Labyrinthe;
+import start.Monstre;
 
 
 public class GamePanel extends JPanel implements Runnable{

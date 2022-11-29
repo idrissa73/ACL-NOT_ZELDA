@@ -1,7 +1,10 @@
-package src;
+package start;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+
+import engine.Controller;
+import engine.GamePanel;
 
 public class Fantome extends Monstre {
 	// change of case position parameter to two parameter positionx and positiony
