@@ -9,14 +9,6 @@ import java.awt.Graphics2D;
 //added
 import javax.swing.JPanel;
 
-<<<<<<< HEAD:src/GamePanel.java
-=======
-import start.Hero;
-import start.Labyrinthe;
-import start.Monstre;
-
->>>>>>> 685f1af50b55e2ddcc85340d272bf51a709fd8ce:src/src/engine/GamePanel.java
-
 public class GamePanel extends JPanel implements Runnable{
 	
 	public final static int pixelSize = 48; //changed to 48
@@ -34,7 +26,9 @@ public class GamePanel extends JPanel implements Runnable{
 	Controller Control= new Controller();
 	Hero player1 = new Hero(this,Control,10,1*pixelSize,1*pixelSize);
 	Monstre monstre1= new Monstre(this,100,3*pixelSize,3*pixelSize);
-		
+	Monstre monstre2= new Monstre(this,100,6*pixelSize,6*pixelSize);
+	Fantome fantome1= new Fantome(this,100,5*pixelSize,5*pixelSize);	
+	Fantome fantome2= new Fantome(this,100,5*pixelSize,5*pixelSize);
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -75,6 +69,13 @@ public class GamePanel extends JPanel implements Runnable{
 		player1.attaquer(monstre1);
 		
 		}
+		if (monstre2.perdreVie()==false) {
+			monstre2.deplacerAleatoire(); 
+			player1.attaquer(monstre1);
+			
+			}
+		fantome1.deplacementFantome();
+		fantome2.deplacementFantome();
 		
 		
 		
@@ -93,6 +94,12 @@ public class GamePanel extends JPanel implements Runnable{
 		{
 		monstre1.draw(g2);
 		}
+		if (monstre2.perdreVie()==false)
+		{
+		monstre2.draw(g2);
+		}
+		fantome1.draw(g2);
+		fantome2.draw(g2);
 		g2.dispose();
 		
 	}
