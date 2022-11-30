@@ -9,16 +9,13 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-
-
 public class Labyrinthe {
 	
 	// change the two attributes TailleX and TailleY to one attribute GamePanel
 		GamePanel gp;
-		Cases[] grille;
+		Cases[] grille; 
 		static int mapTileNum[][];
-		int nbTypeCases = 6; 
-		
+		int nbTypeCases = 10; 
 		
 		
 		public Labyrinthe(GamePanel gp)
@@ -73,17 +70,24 @@ public class Labyrinthe {
 	
 	
 	
-	//New methods
+	//Construction du labyrinthe
 	public void getTileImage()
 	{
+		/*
+		 0 --> sol   2--->eau            4----->BonusBanane     6---->Piege
+		 1 --> mur   3---> BonusPomme    5----->Obstacle        7---->Tresor
+		 			
+		 */
 		try {
 			grille[0]=new Cases();
 			grille[0].image=ImageIO.read(getClass().getResourceAsStream("/src/res/tile_grass.png"));
 			grille[1]=new CaseMur();
 			grille[2]=new CaseEau();
-			grille[3] = new CaseBonus(2);
-			grille[4] = new CaseObstacle();
-			grille[5] = new CasePiege();
+			grille[3] = new CaseBonus(1);
+			grille[4] = new CaseBonus(2);
+			grille[5] = new CaseObstacle();
+			grille[6] = new CasePiege();
+			grille[7] = new CaseTresor();
 		
 		} catch(IOException e) {
 			e.printStackTrace();

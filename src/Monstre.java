@@ -46,7 +46,7 @@ public void deplacerIntelligent() {
 public void draw(Graphics2D g2) {
 try
 {
-mons=ImageIO.read(getClass().getResourceAsStream("/src/res/greenslime_down_2.png"));
+mons=ImageIO.read(getClass().getResourceAsStream("/src/res/fantome.png"));
 }
 catch (IOException e) {
 // TODO Auto-generated catch block
