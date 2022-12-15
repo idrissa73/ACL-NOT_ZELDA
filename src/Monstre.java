@@ -31,11 +31,11 @@ public class Monstre extends Personnage {
 	            hero.subirDegat(10);
 	            System.out.println("attaque du monstre");
 	           
-	        }
-	}
+	}}
 
 public void deplacerAleatoire() {
 	int s=(int)(Math.random()* 100 )+1;
+	if ( (this.positionX < (GamePanel.horizontalPixels-1)*GamePanel.pixelSize) & (this.positionY > 0) & (this.positionY < (GamePanel.verticalPixals-1)*GamePanel.pixelSize) & (this.positionX > 0)){
 			if ((s==1) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
 				super.deplacerHaut();
 			else if ((s==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
@@ -44,6 +44,7 @@ public void deplacerAleatoire() {
 				super.deplacerGauche();
 			else if ((s==4) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
 				super.deplacerDroite();
+			}
 		
 
 	
@@ -52,19 +53,19 @@ public void deplacerAleatoire() {
 public void deplacerIntelligent(Hero hero) {
 	if ((this.positionY>hero.positionY) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
 			{
-			deplacerHaut(10);
+			super.deplacerHaut();
 			
 			}
 		else if (((this.positionY<hero.positionY)) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
 		{
-			deplacerBas(10);
+			super.deplacerBas();
 			}
 		else if (((this.positionX>hero.positionX)) & (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
-			{deplacerGauche(10);
+			{super.deplacerGauche();
 			
 			}
 		else if (((this.positionX<hero.positionX)) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
-			{deplacerDroite(10);
+			{super.deplacerDroite();
 			
 			}
 }

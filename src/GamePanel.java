@@ -38,7 +38,7 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setFocusable(true);// wait for key 
 	}
 	
-	public void startThread() {      // Create a thread that would be executed in every 1/60s
+	public void startThread()  {      // Create a thread that would be executed in every 1/60s
 		thread = new Thread(this);   // should be added to class variables ? 
 		thread.start();
 	}
@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable{
 		if (monstre1.perdreVie()==false) {
 			
 		if (Math.abs(player1.positionY-monstre1.positionY)<pixelSize) {
-			monstre1.deplacerIntelligent(player1);
+			//monstre1.deplacerIntelligent(player1);
 		}else {
 			monstre1.deplacerAleatoire(); 
 		}
@@ -77,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		}
 		if (monstre2.perdreVie()==false) {
-			monstre2.deplacerIntelligent(player1); 
+			//monstre2.deplacerIntelligent(player1); 
 			
 			monstre2.attaquer(player1);
 			player1.attaquer(monstre2);
