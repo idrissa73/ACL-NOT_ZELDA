@@ -10,9 +10,6 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 
-
-
-
 public class GamePanel extends JPanel implements Runnable{
 	
 	public final static int pixelSize = 48; //changed to 48
@@ -20,7 +17,6 @@ public class GamePanel extends JPanel implements Runnable{
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
 	final int screenWidth = pixelSize*horizontalPixels;
 	final int screenHeight = pixelSize*verticalPixals;
-	
 	//added
 		Labyrinthe labyrinthe=new Labyrinthe(this);
 	//added
@@ -28,9 +24,11 @@ public class GamePanel extends JPanel implements Runnable{
 		
 	Thread thread;
 	Controller Control= new Controller();
-	Hero player1 = new Hero(this,Control,10,1*pixelSize,1*pixelSize);
-	Monstre monstre1= new Monstre(this,100,3*pixelSize,3*pixelSize);
-		
+	Hero player1 = new Hero(this,Control,1000,1*pixelSize,1*pixelSize);
+	Monstre monstre1= new Monstre(this,1000,3*pixelSize,3*pixelSize);
+	Monstre monstre2= new Monstre(this,1000,6*pixelSize,6*pixelSize);
+	Fantome fantome1= new Fantome(this,100,5*pixelSize,5*pixelSize);	
+	Fantome fantome2= new Fantome(this,100,5*pixelSize,5*pixelSize);
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -67,10 +65,26 @@ public class GamePanel extends JPanel implements Runnable{
 		player1.Mouvement();
 		
 		if (monstre1.perdreVie()==false) {
-		monstre1.deplacerAleatoire(); 
+			
+		if (Math.abs(player1.positionY-monstre1.positionY)<pixelSize) {
+			monstre1.deplacerIntelligent(player1);
+		}else {
+			monstre1.deplacerAleatoire(); 
+		}
+		//monstre1.deplacerAleatoire(); 
+		monstre1.attaquer(player1);
 		player1.attaquer(monstre1);
 		
 		}
+		if (monstre2.perdreVie()==false) {
+			monstre2.deplacerIntelligent(player1); 
+			
+			monstre2.attaquer(player1);
+			player1.attaquer(monstre2);
+			
+			}
+		fantome1.deplacementFantome();
+		fantome2.deplacementFantome();
 		
 		
 		
@@ -83,12 +97,27 @@ public class GamePanel extends JPanel implements Runnable{
 		//added
 		labyrinthe.draw(g2);
 		//added
-		player1.draw(g2);
+		if (player1.perdreVie()==false)
+		{
+			 g.setColor(Color.BLACK);
+	            g.fillRect(10,10,201,20); 
+	            g.setColor(Color.RED);
+	            g.fillRect(10,10,player1.getPointsVie()/5,20);
+			player1.draw(g2);		}
+		
 		
 		if (monstre1.perdreVie()==false)
 		{
 		monstre1.draw(g2);
 		}
+		if (monstre2.perdreVie()==false)
+		{
+		monstre2.draw(g2);
+		}
+		fantome1.draw(g2);
+		fantome2.draw(g2);
+		
+		
 		g2.dispose();
 		
 	}

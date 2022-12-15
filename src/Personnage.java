@@ -2,6 +2,7 @@ package src;
 
 
 
+
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -90,7 +91,7 @@ public void attaquer()
 
 public boolean perdreVie()
 {
-if (pointsVie == 0)
+if (pointsVie < 0)
 return true;
 return false;
 }

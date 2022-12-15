@@ -34,8 +34,8 @@ public class Hero extends Personnage {
 	        		((this.positionY - GamePanel.pixelSize ==monstre1.positionY) &&(this.positionX==monstre1.positionX))||
 	        		((this.positionX == monstre1.positionX)&&(this.positionY ==monstre1.positionY)))
 				{   System.out.println(monstre1.getPointsVie());
-		            monstre1.subirDegat(10);
-		            System.out.println("attaque");
+		            monstre1.subirDegat(100);
+		            System.out.println("attaque du hero");
 		           
 		        }
 	}}
