@@ -5,13 +5,16 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 //added
+import java.util.ArrayList;
 
 //added
 import javax.swing.JPanel;
 
 
 public class GamePanel extends JPanel implements Runnable{
-	
+	boolean pause=true;
+	boolean pause2=true;
+
 	public final static int pixelSize = 48; //changed to 48
 	public static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
@@ -32,7 +35,9 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(screenWidth,screenHeight));
-		this.setBackground(Color.black);
+		this.setBackground(Color.green);
+		//this.add(paintingChild, "hello");
+
 		this.setDoubleBuffered(true); // draw in the background / better performance / not necessary
 		this.addKeyListener(Control);
 		this.setFocusable(true);// wait for key 
@@ -53,15 +58,17 @@ public class GamePanel extends JPanel implements Runnable{
 			currentTime = System.currentTimeMillis();
 			passTime = currentTime - oldTime;
 			if (passTime > interval ) {  //><
-			update();
-			
-			repaint();
-			oldTime = System.currentTimeMillis();
+			System.out.println(Control.pause);
+			if (Control.pause==false){
+					
+				update();
+				repaint();
+				oldTime = System.currentTimeMillis();
 			}
 		}
 	}
+}
 	public void update() {
-		
 		player1.Mouvement();
 		
 		if (monstre1.perdreVie()==false) {
@@ -104,8 +111,24 @@ public class GamePanel extends JPanel implements Runnable{
 	            g.setColor(Color.RED);
 	            g.fillRect(10,10,player1.getPointsVie()/5,20);
 			player1.draw(g2);		}
+		else {
+			thread=null;
+		}
 		
 		
+		
+		if ((monstre1.perdreVie()==true) & pause == true )
+		{
+		player1.score++; 
+		pause=false;
+		}
+		if ((monstre2.perdreVie()==true)& pause2 ==true)
+		{
+		player1.score++;
+		pause2=false;
+		}
+	
+		System.out.println(player1.score);
 		if (monstre1.perdreVie()==false)
 		{
 		monstre1.draw(g2);
@@ -115,13 +138,13 @@ public class GamePanel extends JPanel implements Runnable{
 		monstre2.draw(g2);
 		}
 		fantome1.draw(g2);
-		fantome2.draw(g2);
-		
+		fantome2.draw(g2);	
 		
 		g2.dispose();
 		
 	}
-	
-	
-	
+void sauvegardescores(int score){
+		ArrayList<Integer> listedesscores = new ArrayList<Integer>();
+		listedesscores.add(score);
+	}
 }

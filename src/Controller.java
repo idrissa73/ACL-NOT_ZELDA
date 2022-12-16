@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class Controller implements KeyListener {
 	
 	public boolean Up,Left,Down,Right,Attaque;
+	public boolean pause=false;
 
 	
 	public void keyTyped(KeyEvent e) {			
@@ -30,6 +31,12 @@ public class Controller implements KeyListener {
 		if (input == KeyEvent.VK_SPACE) {
 			Attaque=true;
 		}
+       if(input== KeyEvent.VK_P){
+    	   if (pause==false) {
+    	   pause=true;}
+    	   else {
+        	   pause = false;}
+       }
 	}
 
 	@Override
