@@ -10,3 +10,8 @@
 - Tag : Tage 3.0 ? on est en sprint 2 !!!!
 
 # Srpint 3
+- Diagramme de classes : ok
+- Diagramme de séquence : pas bien, il n'y a pas de boucle du jeu ? Fin jeu ? Collision ?
+- Préparation de Sprint 4 : Une seule personne qui va faire les tests ?
+
+
