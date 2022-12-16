@@ -86,6 +86,10 @@ public class GamePanel extends JPanel implements Runnable{
 		fantome1.deplacementFantome();
 		fantome2.deplacementFantome();
 		
+		fantome2.attaquer(player1);
+		player1.attaquer(fantome2);
+		
+		
 		
 		
 		//System.out.println(player1.positionX);

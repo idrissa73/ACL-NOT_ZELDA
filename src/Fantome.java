@@ -16,15 +16,17 @@ public class Fantome extends Monstre {
 
 	public void deplacementFantome() {
 			int s=(int)(Math.random()* 100 )+1;
-					if ((s==1) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]!=0))
+			if ( (this.positionX < (GamePanel.horizontalPixels-1)*GamePanel.pixelSize) & (this.positionY > 0) & (this.positionY < (GamePanel.verticalPixals-1)*GamePanel.pixelSize) & (this.positionX > 0)){
+
+					if ((s==1) &(Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]!=2))
 						super.deplacerHaut();
-					else if ((s==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]!=0))
+					else if ((s==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]!=2))
 						super.deplacerBas();
-					else if ((s==3) & (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]!=0))
+					else if ((s==3) &(Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]!=2))
 						super.deplacerGauche();
-					else if ((s==4) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]!=0))
+					else if ((s==4) &(Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]!=2))
 						super.deplacerDroite();
-		
+			}
 	} 
 	
 	public void testCase() {
