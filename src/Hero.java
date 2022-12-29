@@ -48,15 +48,64 @@ public class Hero extends Personnage {
 				if((Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ])==0 ) {
 					deplacerHaut();
 					control.Up=false;}
-
-				//control.Up = false;
+				else if ((Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ])==4  ) 	{
+					this.pointsVie+=200;
+					deplacerHaut();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Up=false;}
+				else if ((Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ])==7  ) 	{
+					GamePanel.gameStatus=2;
+					deplacerHaut();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Up=false;}
+				else if ((Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ])==3  ) 	{
+					deplacerHaut();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					for (int i=0;i<GamePanel.horizontalPixels;i++) {
+						for (int j=0; j<GamePanel.verticalPixals; j++) {
+						if ((Labyrinthe.mapTileNum[i][j])==3) {
+							Labyrinthe.mapTileNum[i][j]=0;
+							this.positionX=i*48;
+							this.positionY=j*48;
+						}
+					}
+					}
+					control.Up=false;}
+			
+			
 			}
+			
 			
 			if (control.Down == true) {
 				if (this.positionY < (GamePanel.verticalPixals-1)*GamePanel.pixelSize)
 				if((Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1])==0) {
 					deplacerBas();
 					control.Down=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1])==4) {
+					this.pointsVie+=200;
+					deplacerBas();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Down=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1])==7) {
+					GamePanel.gameStatus=2;
+					deplacerBas();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Down=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1])==3) {
+					
+					deplacerBas();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					for (int i=0;i<GamePanel.horizontalPixels;i++) {
+						for (int j=0; j<GamePanel.verticalPixals; j++) {
+						if ((Labyrinthe.mapTileNum[i][j])==3) {
+							Labyrinthe.mapTileNum[i][j]=0;
+							this.positionX=i*48;
+							this.positionY=j*48;
+						}
+					}
+					}
+					control.Down=false;}
+				
 
 				//control.Down = false;
 			}
@@ -65,25 +114,71 @@ public class Hero extends Personnage {
 				if((Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48])==0)
 				{deplacerGauche();
 				control.Left=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48])==4)
+				{this.pointsVie+=200;
+				deplacerGauche();
+				Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+				control.Left=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48])==7)
+				{GamePanel.gameStatus=2;
+				deplacerGauche();
+				Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+				control.Left=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48])==3)
+				{
+				deplacerGauche();
+				Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+				for (int i=0;i<GamePanel.horizontalPixels;i++) {
+					for (int j=0; j<GamePanel.verticalPixals; j++) {
+					if ((Labyrinthe.mapTileNum[i][j])==3) {
+						Labyrinthe.mapTileNum[i][j]=0;
+						this.positionX=i*48;
+						this.positionY=j*48;
+					}
+				}
+				}
+				control.Left=false;}
+				
 
-				//control.Left = false;
 			}
+			
 			if (control.Right == true) {
 				if (this.positionX < (GamePanel.horizontalPixels-1)*GamePanel.pixelSize)
 				if((Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48])==0){
 					deplacerDroite();
 					control.Right=false;}
-				//control.Right = false;
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48])==4){
+					this.pointsVie+=200;
+					deplacerDroite();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Right=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48])==7){
+					GamePanel.gameStatus=2;
+					deplacerDroite();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					control.Right=false;}
+				else if((Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48])==3){
+					deplacerDroite();
+					Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48]=0;
+					for (int i=0;i<GamePanel.horizontalPixels;i++) {
+						for (int j=0; j<GamePanel.verticalPixals; j++) {
+						if ((Labyrinthe.mapTileNum[i][j])==3) {
+							Labyrinthe.mapTileNum[i][j]=0;
+							this.positionX=i*48;
+							this.positionY=j*48;
+						}
+					}
+					}
+					control.Right=false;}
 
 			}
 		}
+		
+		
+		
+		
 
-			//IF COLLISION IS FALSE,PLAYER CAN MOVE
-
-
-
-
-
+			
 
 			spriteCounter++;
 			if (spriteCounter>10)
@@ -102,6 +197,11 @@ public class Hero extends Personnage {
 		}
 	
 
+
+	private void gagner() {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void getPlayerImage()
 	{

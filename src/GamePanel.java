@@ -1,11 +1,14 @@
 package src;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 //added
 
+import javax.swing.JLabel;
 //added
 import javax.swing.JPanel;
 
@@ -20,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
 	//added
 		Labyrinthe labyrinthe=new Labyrinthe(this);
 	//added
+		static int gameStatus=1; //etat du jeu
 	
 		
 	Thread thread;
@@ -61,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 	}
 	public void update() {
-		
+		if (gameStatus==1){
 		player1.Mouvement();
 		
 		if (monstre1.perdreVie()==false) {
@@ -84,7 +88,12 @@ public class GamePanel extends JPanel implements Runnable{
 			
 			}
 		fantome1.deplacementFantome();
-		fantome2.deplacementFantome();
+		fantome2.deplacementFantome();}
+		
+		if (gameStatus==2) {
+			
+			
+		}
 		
 		
 		
@@ -94,6 +103,8 @@ public class GamePanel extends JPanel implements Runnable{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
+		
+		if (gameStatus==1){
 		//added
 		labyrinthe.draw(g2);
 		//added
@@ -115,9 +126,16 @@ public class GamePanel extends JPanel implements Runnable{
 		monstre2.draw(g2);
 		}
 		fantome1.draw(g2);
-		fantome2.draw(g2);
+		fantome2.draw(g2);}
 		
-		
+		if (gameStatus==2){
+			 g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 36));
+	         g.drawString("YOU  WOoNNN", 5*48, 6*48);
+			
+			
+		}
 		g2.dispose();
 		
 	}

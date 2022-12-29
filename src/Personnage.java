@@ -10,9 +10,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 
-public class Personnage
+public  class Personnage
 {
-	private int pointsVie;
+	public int pointsVie;
 	public int positionX;
 	public int positionY;
 	GamePanel gp;
@@ -99,10 +99,6 @@ public class Personnage
 	}
 	//nom a changer
 
-	public void gagner()
-	{
-		//*********
-	}
 
 	public void subirDegat(int degat)
 	{
