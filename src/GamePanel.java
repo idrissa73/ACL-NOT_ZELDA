@@ -23,11 +23,11 @@ public class GamePanel extends JPanel implements Runnable{
 	//added
 		Labyrinthe labyrinthe=new Labyrinthe(this);
 	//added
-		static int gameStatus=1; //etat du jeu
+		static int gameStatus=1; //etat du jeu 1 pour playstate et 2 pour le gain et 3 pour la pause
 	
 		
 	Thread thread;
-	Controller Control= new Controller();
+	Controller Control= new Controller(this);
 	Hero player1 = new Hero(this,Control,1000,1*pixelSize,1*pixelSize);
 	Monstre monstre1= new Monstre(this,1000,3*pixelSize,3*pixelSize);
 	Monstre monstre2= new Monstre(this,1000,6*pixelSize,6*pixelSize);
@@ -135,6 +135,12 @@ public class GamePanel extends JPanel implements Runnable{
 	         g.drawString("YOU  WOoNNN", 5*48, 6*48);
 			
 			
+		}
+		if (gameStatus==3) {
+			g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 48));
+	         g.drawString("PAUSE", 6*48, 6*48);
 		}
 		g2.dispose();
 		

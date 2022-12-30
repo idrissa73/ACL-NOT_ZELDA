@@ -4,10 +4,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Controller implements KeyListener {
-	
+	GamePanel gp ; 
 	public boolean Up,Left,Down,Right,Attaque;
 
-	
+	public Controller(GamePanel gp) {
+		this.gp=gp;
+	}
 	public void keyTyped(KeyEvent e) {			
 	}
 
@@ -29,6 +31,14 @@ public class Controller implements KeyListener {
 		}
 		if (input == KeyEvent.VK_SPACE) {
 			Attaque=true;
+		}
+		if (input == KeyEvent.VK_P) {
+		   if (GamePanel.gameStatus==1) {
+			   GamePanel.gameStatus=3; 
+		   }
+		   else if (GamePanel.gameStatus==3) {
+			   GamePanel.gameStatus=1;
+		   }
 		}
 	}
 
