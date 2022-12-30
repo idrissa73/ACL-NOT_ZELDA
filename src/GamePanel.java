@@ -90,7 +90,7 @@ public class GamePanel extends JPanel implements Runnable{
 		fantome1.deplacementFantome();
 		fantome2.deplacementFantome();}
 		
-		if (gameStatus==2) {
+		if ((gameStatus==2)||(gameStatus==3)){
 			
 			
 		}
@@ -137,9 +137,15 @@ public class GamePanel extends JPanel implements Runnable{
 			
 		}
 		if (gameStatus==3) {
+			labyrinthe.draw(g2);
+			player1.draw(g2);
+			monstre1.draw(g2);
+			monstre2.draw(g2);
+			fantome1.draw(g2);
+			fantome2.draw(g2);
 			g.setColor(Color.WHITE);
 	         
-	         g.setFont(new Font("Serif", Font.ITALIC, 48));
+	         g.setFont(new Font("Serif", Font.BOLD, 72));
 	         g.drawString("PAUSE", 6*48, 6*48);
 		}
 		g2.dispose();
