@@ -151,7 +151,9 @@ public class GamePanel extends JPanel implements Runnable{
 		if (gameStatus==3) {
 			labyrinthe.draw(g2);
 			player1.draw(g2);
+			if (monstre1.perdreVie()==false)
 			monstre1.draw(g2);
+			if (monstre2.perdreVie()==false)
 			monstre2.draw(g2);
 			fantome1.draw(g2);
 			fantome2.draw(g2);
