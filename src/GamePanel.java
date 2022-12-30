@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
 	//added
 		Labyrinthe labyrinthe=new Labyrinthe(this);
 	//added
-		static int gameStatus=1; //etat du jeu 1 pour playstate et 2 pour le gain et 3 pour la pause
+		static int gameStatus=1; //etat du jeu 1 pour playstate et 2 pour le gain,3 pour la pause et 4 pour le game over 
 	
 		
 	Thread thread;
@@ -90,7 +90,7 @@ public class GamePanel extends JPanel implements Runnable{
 		fantome1.deplacementFantome();
 		fantome2.deplacementFantome();}
 		
-		if ((gameStatus==2)||(gameStatus==3)){
+		if ((gameStatus==2)||(gameStatus==3)||(gameStatus==4)){
 			
 			
 		}
@@ -115,8 +115,8 @@ public class GamePanel extends JPanel implements Runnable{
 	            g.setColor(Color.RED);
 	            g.fillRect(10,10,player1.getPointsVie()/5,20);
 			player1.draw(g2);		}
-		
-		
+	
+	
 		if (monstre1.perdreVie()==false)
 		{
 		monstre1.draw(g2);
@@ -135,6 +135,18 @@ public class GamePanel extends JPanel implements Runnable{
 	         g.drawString("YOU  WOoNNN", 5*48, 6*48);
 			
 			
+		}
+		if (player1.perdreVie()==true) {
+			labyrinthe.draw(g2);
+			monstre1.draw(g2);
+			monstre2.draw(g2);
+			fantome1.draw(g2);
+			fantome2.draw(g2);
+			gameStatus=4;
+			g.setColor(Color.WHITE);
+	         g.setFont(new Font("Serif", Font.BOLD, 72));
+	         g.drawString("GAME OVER", 3*48, 6*48);
+	         
 		}
 		if (gameStatus==3) {
 			labyrinthe.draw(g2);
