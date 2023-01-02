@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class Controller implements KeyListener {
 	GamePanel gp ; 
 	public boolean Up,Left,Down,Right,Attaque;
-
+	public boolean Map1,Map2,Map3;
 	public Controller(GamePanel gp) {
 		this.gp=gp;
 	}
@@ -39,6 +39,21 @@ public class Controller implements KeyListener {
 		   else if (GamePanel.gameStatus==3) {
 			   GamePanel.gameStatus=1;
 		   }
+		}
+		if (input == KeyEvent.VK_1) {
+			Map1=true;
+			gp.map = "/src/res/map01.txt";
+			GamePanel.gameStatus=1; 
+		}
+		if (input == KeyEvent.VK_2) {
+			Map2=true;
+			gp.map = "/src/res/map02.txt";
+			GamePanel.gameStatus=1;  
+		}
+		if (input == KeyEvent.VK_3) {
+			Map3=true;
+			gp.map = "/src/res/map03.txt";
+			GamePanel.gameStatus=1; 
 		}
 	}
 

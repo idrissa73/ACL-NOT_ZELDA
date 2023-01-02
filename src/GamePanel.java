@@ -19,15 +19,24 @@ public class GamePanel extends JPanel implements Runnable{
 	public static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
 	final int screenWidth = pixelSize*horizontalPixels;
-	final int screenHeight = pixelSize*verticalPixals;
+	final int screenHeight = pixelSize*verticalPixals+50;
+	public String map = "/src/res/map00.txt";
+	
 	//added
-		Labyrinthe labyrinthe=new Labyrinthe(this);
+		
+		
 	//added
-		static int gameStatus=1; //etat du jeu 1 pour playstate et 2 pour le gain,3 pour la pause et 4 pour le game over 
+		static int gameStatus=0; //etat du jeu 1 pour playstate et 2 pour le gain,3 pour la pause et 4 pour le game over 
+		
 	
 		
 	Thread thread;
 	Controller Control= new Controller(this);
+	
+	
+	Labyrinthe labyrinthe=new Labyrinthe(this,map);	
+	Labyrinthe labyrinthe2=new Labyrinthe(this,map);
+	
 	Hero player1 = new Hero(this,Control,1000,1*pixelSize,1*pixelSize);
 	Monstre monstre1= new Monstre(this,1000,3*pixelSize,3*pixelSize);
 	Monstre monstre2= new Monstre(this,1000,6*pixelSize,6*pixelSize);
@@ -65,7 +74,23 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 	}
 	public void update() {
+		if (gameStatus ==0) {
+			Labyrinthe labyrinthe2=new Labyrinthe(this,map);
+		}
+		
 		if (gameStatus==1){
+			if (Control.Map1) {
+				Labyrinthe labyrinthe2=new Labyrinthe(this,map);
+				Control.Map1 = false;
+			}
+			if (Control.Map2) {
+				Labyrinthe labyrinthe2=new Labyrinthe(this,map);
+				Control.Map2 = false;
+			}
+			if (Control.Map3) {
+				Labyrinthe labyrinthe2=new Labyrinthe(this,map);
+				Control.Map3 = false;
+			}
 		player1.Mouvement();
 		
 		if (monstre1.perdreVie()==false) {
@@ -104,17 +129,41 @@ public class GamePanel extends JPanel implements Runnable{
 	
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-		
+		if(gameStatus==0) {
+			
+			labyrinthe2.draw(g2);
+			
+			g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 46));
+	         g.drawString("WELCOME TO THE GAME", 120, 80);
+	         
+			
+			g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 36));
+	         g.drawString("press 1 to choose the map 1", 200, 200);
+	         
+	         g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 36));
+	         g.drawString("press 2 to choose the map 2", 200,250 );
+	         
+	         g.setColor(Color.WHITE);
+	         
+	         g.setFont(new Font("Serif", Font.ITALIC, 36));
+	         g.drawString("press 3 to choose the map 3", 200,300);
+		}
 		if (gameStatus==1){
 		//added
-		labyrinthe.draw(g2);
+		labyrinthe2.draw(g2);
 		//added
 		if (player1.perdreVie()==false)
 		{
-			 g.setColor(Color.BLACK);
-	            g.fillRect(10,10,201,20); 
+			 g.setColor(Color.BLUE);
+	            g.fillRect(540,590,201,20); 
 	            g.setColor(Color.RED);
-	            g.fillRect(10,10,player1.getPointsVie()/5,20);
+	            g.fillRect(540,590,player1.getPointsVie()/5,20);
 			player1.draw(g2);		}
 	
 	
@@ -134,6 +183,7 @@ public class GamePanel extends JPanel implements Runnable{
 		test1=false;
 		}
 	
+		System.out.println(player1.score);
 		if (monstre2.perdreVie()==false)
 		{
 		monstre2.draw(g2);
@@ -143,7 +193,7 @@ public class GamePanel extends JPanel implements Runnable{
 		g.setColor(Color.WHITE);
         
         g.setFont(new Font("Serif", Font.ITALIC, 36));
-        g.drawString("score : "+player1.score, 5, 560);
+        g.drawString("score : "+player1.score, 5, 560+50);
 		}
 		
 		if (gameStatus==2){

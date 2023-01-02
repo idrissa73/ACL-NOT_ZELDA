@@ -16,15 +16,16 @@ public class Labyrinthe {
 		Cases[] grille; 
 		static int mapTileNum[][];
 		int nbTypeCases = 10; 
+		//String map = "/src/res/map01.txt";
 		
 		
-		public Labyrinthe(GamePanel gp)
+		public Labyrinthe(GamePanel gp, String map)
 		{
 			this.gp=gp;
 			grille=new Cases[nbTypeCases];
 			mapTileNum= new int[GamePanel.horizontalPixels][GamePanel.verticalPixals];
 			getTileImage();
-			loadMap("/src/res/map01.txt");
+			loadMap(map);
 			
 		}
 		
