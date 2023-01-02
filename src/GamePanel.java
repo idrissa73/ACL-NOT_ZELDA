@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 
 public class GamePanel extends JPanel implements Runnable{
-	
+	boolean test=true,test1=true;
 	public final static int pixelSize = 48; //changed to 48
 	public static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
@@ -101,6 +101,7 @@ public class GamePanel extends JPanel implements Runnable{
 	}
 	
 	public void paintComponent(Graphics g) {
+	
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
 		
@@ -121,12 +122,29 @@ public class GamePanel extends JPanel implements Runnable{
 		{
 		monstre1.draw(g2);
 		}
+		if ((monstre1.perdreVie()==true) && test)
+		{
+		player1.score++; 
+		
+		test=false;
+		}
+		if ((monstre2.perdreVie()==true)&& test1)
+		{
+		player1.score++;
+		test1=false;
+		}
+	
 		if (monstre2.perdreVie()==false)
 		{
 		monstre2.draw(g2);
 		}
 		fantome1.draw(g2);
-		fantome2.draw(g2);}
+		fantome2.draw(g2);
+		g.setColor(Color.WHITE);
+        
+        g.setFont(new Font("Serif", Font.ITALIC, 36));
+        g.drawString("score : "+player1.score, 5, 560);
+		}
 		
 		if (gameStatus==2){
 			 g.setColor(Color.WHITE);

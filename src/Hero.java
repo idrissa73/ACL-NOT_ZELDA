@@ -15,6 +15,7 @@ public class Hero extends Personnage {
 
 
 	Controller control;
+	public int score=0;
 
 	public Hero(GamePanel gp, Controller control,int pointsVie, int positionX,int positionY) {
 		super(gp,pointsVie,positionX,positionY);
