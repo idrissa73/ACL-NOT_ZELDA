@@ -13,7 +13,7 @@ public class CaseBonus extends Cases {
 		this.bonusVie = bonusVie;
 		// Chargement de l'image
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/apple2s.png"));
+			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/portail.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -23,7 +23,7 @@ public class CaseBonus extends Cases {
 		// Chargement de l'image
 		try {
 			if (typeBonus == 1) {
-				this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/apple2.png"));
+				this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/portail.png"));
 			}else if (typeBonus==2) {
 				this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/banana.png"));
 			}

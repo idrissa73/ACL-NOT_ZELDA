@@ -8,7 +8,7 @@ public class CaseTresor extends Cases {
 	
 	public CaseTresor() {
 		try {
-			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/cle.png"));
+			this.image = ImageIO.read(getClass().getResourceAsStream("/src/res/Tresor_.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
