@@ -103,7 +103,6 @@ public class GamePanel extends JPanel implements Runnable{
 		//monstre1.deplacerAleatoire(); 
 		monstre1.attaquer(player1);
 		player1.attaquer(monstre1);
-		
 		}
 		if (monstre2.perdreVie()==false) {
 			monstre2.deplacerAleatoire(); 
@@ -122,11 +121,6 @@ public class GamePanel extends JPanel implements Runnable{
 		player1.attaquer2(fantome2);
 		}
 		
-		}
-		
-		if ((gameStatus==2)||(gameStatus==3)||(gameStatus==4)){
-			
-			
 		}
 		
 		
@@ -229,6 +223,7 @@ public class GamePanel extends JPanel implements Runnable{
 			
 			
 		}
+		
 		if (player1.perdreVie()==true) {
 			labyrinthe.draw(g2);
 			monstre1.draw(g2);
