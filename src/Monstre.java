@@ -44,7 +44,45 @@ public void deplacerAleatoire() {
 				super.deplacerGauche();
 			else if ((s==4) & (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
 				super.deplacerDroite();
+	}
+			else if (this.positionX == (GamePanel.horizontalPixels-1)*GamePanel.pixelSize) {
+				int h=(int)(Math.random()* 50 )+1;
+				if ((h==3) & (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
+				super.deplacerGauche();
+				else if ((h==2) & (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
+					super.deplacerBas();
+				else if ((h==1) & (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
+					super.deplacerHaut();
 			}
+			else if (this.positionY == 0) {
+				int h=(int)(Math.random()* 50 )+1;
+				if ((h==3)& (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
+				super.deplacerGauche();
+				else if ((h==2)& (Labyrinthe.mapTileNum[(this.positionX/48 )][this.positionY/48 +1]==0))
+					super.deplacerBas();
+				else if ((h==1)& (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
+					super.deplacerDroite();
+			}
+	
+			else if (this.positionY == (GamePanel.verticalPixals-1)*GamePanel.pixelSize) {
+				int h=(int)(Math.random()* 50 )+1;
+				if ((h==3)& (Labyrinthe.mapTileNum[(this.positionX/48 -1)][this.positionY/48]==0))
+				super.deplacerGauche();
+				else if ((h==2)& (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
+					super.deplacerDroite();
+				else if ((h==1)& (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
+					super.deplacerHaut();
+			}
+			else if (this.positionX ==0 ) {
+				int h=(int)(Math.random()* 50 )+1;
+				if ((h==3)& (Labyrinthe.mapTileNum[(this.positionX/48 +1)][this.positionY/48]==0))
+					super.deplacerDroite();
+				else if ((h==2)& (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 +1]==0))
+					super.deplacerBas();
+				else if ((h==1)& (Labyrinthe.mapTileNum[(this.positionX/48)][this.positionY/48 -1 ]==0))
+					super.deplacerHaut();
+			}
+			
 		
 
 	
