@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 
 
 public class GamePanel extends JPanel implements Runnable{
-	boolean test=true,test1=true;
+	boolean test=true,test1=true,test2=true,test3=true;
 	public final static int pixelSize = 48; //changed to 48
 	public static int horizontalPixels =16; //changed to 16 + added visibility public+ remove of final
 	public static int verticalPixals =12; //changed to 12 + added visibility public + remove of final
@@ -106,14 +106,23 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		}
 		if (monstre2.perdreVie()==false) {
-			//monstre2.deplacerIntelligent(player1); 
+			monstre2.deplacerAleatoire(); 
 			
 			monstre2.attaquer(player1);
 			player1.attaquer(monstre2);
 			
 			}
+		if (fantome1.perdreVie()==false) {
 		fantome1.deplacementFantome();
-		fantome2.deplacementFantome();}
+		fantome1.attaquer(player1);
+		player1.attaquer2(fantome1);}
+		if (fantome2.perdreVie()==false) {
+		fantome2.deplacementFantome();
+		fantome2.attaquer(player1);
+		player1.attaquer2(fantome2);
+		}
+		
+		}
 		
 		if ((gameStatus==2)||(gameStatus==3)||(gameStatus==4)){
 			
@@ -182,14 +191,30 @@ public class GamePanel extends JPanel implements Runnable{
 		player1.score++;
 		test1=false;
 		}
+		if ((fantome1.perdreVie()==true) && test2)
+		{
+		player1.score++; 
+		
+		test2=false;
+		}
+		if ((fantome2.perdreVie()==true)&& test3)
+		{
+		player1.score++;
+		test3=false;
+		}
 	
-		System.out.println(player1.score);
 		if (monstre2.perdreVie()==false)
 		{
 		monstre2.draw(g2);
 		}
-		fantome1.draw(g2);
-		fantome2.draw(g2);
+		if (fantome1.perdreVie()==false)
+		{
+			fantome1.draw(g2);
+		}
+		if (fantome2.perdreVie()==false)
+		{
+			fantome2.draw(g2);
+		}
 		g.setColor(Color.WHITE);
         
         g.setFont(new Font("Serif", Font.ITALIC, 36));

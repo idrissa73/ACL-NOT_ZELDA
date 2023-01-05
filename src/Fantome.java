@@ -74,7 +74,7 @@ public class Fantome extends Monstre {
 	public void draw(Graphics2D g2) {
 		try
 		{
-		mons=ImageIO.read(getClass().getResourceAsStream("/src/res/Fantome.png"));
+		mons=ImageIO.read(getClass().getResourceAsStream("/src/res/fantome1.png"));
 		}
 		catch (IOException e) {
 		e.printStackTrace();
